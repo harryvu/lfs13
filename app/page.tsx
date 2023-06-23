@@ -9,14 +9,6 @@ async function getTodos() {
   return todos
 }
 
-
-async function getRandomPost() {
-  // random number between 1 and 100
-  const randomId = Math.floor(Math.random() * 100)
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${randomId}`, { cache: "no-cache" })
-  return await res.json()
-}
-
 async function getServerTime() {
   const date = new Date().toLocaleString()
   return { props: { date } };
@@ -25,10 +17,8 @@ async function getServerTime() {
 export default async function Home() {
   const todos = await getTodos()
   console.log(todos)
-
   const serverTime = await getServerTime()
-  const randomPost = await getRandomPost()
-  console.log(randomPost.title)
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>{serverTime.props.date}</div>
