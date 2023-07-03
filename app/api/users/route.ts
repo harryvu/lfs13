@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
             e
         );
         return NextResponse.json(
-            { error: `Error while trying to create directory when uploading a file\n! ${e}` },
+            { error: `Error while trying to create directory when uploading a file!\n${e}` },
             { status: 500 }
         );
         }
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     } catch (e) {
         console.error("Error while trying to upload a file\n", e);
         return NextResponse.json(
-        { error: "Something went wrong." },
+        { error: `Something went wrong!\n${e}` },
         { status: 500 }
         );
     }
