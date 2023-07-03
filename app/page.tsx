@@ -18,6 +18,7 @@ export default async function Home() {
   const todos = await getTodos()
   console.log(todos)
   const serverTime = await getServerTime()
+  console.log(serverTime.props.date)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
